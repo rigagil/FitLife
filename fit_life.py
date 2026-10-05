@@ -12,8 +12,13 @@ user_age = int(input("Подскажи твой возраст(в лет): "))
 # Запрашиваем вес (в кг) и сохраняем в user_weight (тип float)
 user_weight = float(input("Скажи свой вес(в кг): "))
 
-# Запрашиваем рост (в метрах) и сохраняем в user_height (тип float)
-user_height = float(input("Какой твой рост(в метр)? "))
+# Делаем цикл, чтобы проверить правильность ввода
+while True:
+    try:  # Запрашиваем рост (в метрах) и сохраняем в user_height (тип float)
+        user_height = float(input("Какой твой рост(в метр)? "))
+        break
+    except ValueError:
+        print("Ошибка: введите просто число или число с точкой")
 
 # 3. Логика расчетов
 # Формула ИМТ: вес разделить на (рост в квадрате)
@@ -25,7 +30,7 @@ bmi = round((user_weight / (user_height ** 2)), 1)
 water_needed = (user_weight * WATER_PER_KG) / WATER_IN_LIT
 
 # 4. Вывод красивого результата
-print(f'Отчет для пользователя: {user_name} ({user_age} г.)')
-print(f'Твой Индекс Массы Тела: {bmi}')
-print(f'Рекомендуемая норма воды: {water_needed} л. в день\n')
+print(f"Отчет для пользователя: {user_name} ({user_age} г.)")
+print(f"Твой Индекс Массы Тела: {bmi}")
+print(f"Рекомендуемая норма воды: {water_needed} л. в день")
 print("Расчет окончен. Будьте здоровы!")
